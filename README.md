@@ -18,4 +18,4 @@ $ cd NewsApp
 
 Released under the Apache license, 2.0.
 
-Copyright 2011-2014, Couchbase, Inc.
+Copyright 2011-2014, Sophie Cooperman, Inc.

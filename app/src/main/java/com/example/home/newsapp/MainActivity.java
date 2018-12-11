@@ -5,8 +5,12 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
-import com.example.home.newsapp.screens.MainArticlesFragment;
+import com.example.home.newsapp.baseline.NewsApplication;
+import com.example.home.newsapp.events.AddFragmentEvent;
+import com.example.home.newsapp.screens.articleslist.MainArticlesFragment;
 import com.example.home.newsapp.events.UpdateActionBarTitleEvent;
 
 import org.greenrobot.eventbus.EventBus;
@@ -16,7 +20,6 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
-
     Fragment currentFragment;
     ActionBar actionBar;
 
@@ -25,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        NewsApplication.getAppComponent().inject(this);
+
         ButterKnife.bind(this);
         EventBus.getDefault().register(this);
         actionBar = getSupportActionBar();
@@ -38,6 +43,11 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
+
+    @Subscribe
+    public void addFragment(AddFragmentEvent event){
+        replaceFragment(event.getFragment(), event.getFragment().getClass().getName());
+    }
 
     private void addFragment(Fragment fragment, String fragmentName){
         getSupportFragmentManager()
@@ -62,8 +72,14 @@ public class MainActivity extends AppCompatActivity {
     @Subscribe
     public void updateActionBarTitle(UpdateActionBarTitleEvent event){
         actionBar.setTitle(event.getTitle());
-        actionBar.setSubtitle(event.getSubtitle());
+    }
 
+    public static class MyWebViewClient extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            view.loadUrl(url);
+            return true;
+        }
     }
 
 

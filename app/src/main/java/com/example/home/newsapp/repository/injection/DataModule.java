@@ -22,7 +22,6 @@ public class DataModule {
     @Singleton
     @Provides
     public RemoteData provideRemoteData() {
-//        return new RemoteDataImpl(context);
         return new RemoteData();
 
     }
@@ -30,7 +29,6 @@ public class DataModule {
     @Singleton
     @Provides
     public LocalData provideLocalData(Context context) {
-//        return new RemoteDataImpl(context);
         return new LocalData(context);
 
     }

@@ -3,10 +3,11 @@ package com.example.home.newsapp.baseline.appinjection;
 import com.example.home.newsapp.MainActivity;
 import com.example.home.newsapp.baseline.BasicFragment;
 import com.example.home.newsapp.repository.injection.DataModule;
+import com.example.home.newsapp.screens.articleslist.injection.MainArticlesComponent;
+import com.example.home.newsapp.screens.articleslist.injection.MainArticlesModule;
 
 import javax.inject.Singleton;
 import dagger.Component;
-
 
 
 @Singleton
@@ -17,7 +18,6 @@ public interface AppComponent {
 
     void inject(BasicFragment target);
 
-//    MusicListComponent plus(MusicListModule musicListModule);
-//
-//    SongViewComponent plus(SongViewModule songViewModule);
+    MainArticlesComponent plus(MainArticlesModule mainArticlesModule);
+
 }

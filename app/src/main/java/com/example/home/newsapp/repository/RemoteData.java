@@ -1,20 +1,14 @@
 package com.example.home.newsapp.repository;
 
 
+import com.example.home.newsapp.repository.retrofit.api.BackEndApi;
+import com.example.home.newsapp.repository.retrofit.model.ArticlesListResponse;
+
+import io.reactivex.Single;
 
 public class RemoteData {
-//    public Single<ArticlesListResponse> getAlbumsList() {
-//        return BackEndApi.getApi().getAlbumsList();
-//    }
-//
-//
-//
-//    public Single<Integer> sendSimpleRequest() {
-//        return BackEndApi.getApi().sendSimplereq();
-//
-//    }
-//
-//    public Completable sendLyricsToDB(SongModel song) {
-//        return BackEndApi.getApi().sendLyrics(song);
-//    }
+    public Single<ArticlesListResponse> getArticlesList() {
+        return BackEndApi.getApi().getArticlesList();
+    }
+
 }

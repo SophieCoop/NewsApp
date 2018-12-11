@@ -1,5 +1,8 @@
 package com.example.home.newsapp.baseline;
 
+import com.example.home.newsapp.repository.retrofit.model.ArticlesListResponse;
+import io.reactivex.Single;
+
 
 
 public interface BaseContract {
@@ -13,12 +16,6 @@ public interface BaseContract {
 
     interface Repository {
 
-//        Single<List<Album>> getAlbumList();
-//
-//        Completable downloadAlbums();
-//
-//        Completable saveLyrics(Song song);
-//
-//        Single<String> getSongLyrics(int songId);
+        Single<ArticlesListResponse> downloadArticles();
     }
 }

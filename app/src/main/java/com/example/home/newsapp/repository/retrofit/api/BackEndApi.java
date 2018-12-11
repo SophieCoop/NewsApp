@@ -25,8 +25,6 @@ public class BackEndApi {
                     new HttpLoggingInterceptor(BackEndApi::logHttpMessage)
                             .setLevel(HttpLoggingInterceptor.Level.BODY);
 
-//            HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-
             OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
 
             httpClient.addInterceptor(logging);

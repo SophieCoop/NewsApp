@@ -1,12 +1,13 @@
 package com.example.home.newsapp.repository;
 
 import com.example.home.newsapp.baseline.BaseContract;
+import com.example.home.newsapp.repository.retrofit.model.ArticlesListResponse;
+
 import javax.inject.Inject;
 
+import io.reactivex.Single;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 
-/**
- * Created by SophieC on 22/02/2018
- */
 
 public class RepositoryImpl implements BaseContract.Repository {
 
@@ -19,4 +20,9 @@ public class RepositoryImpl implements BaseContract.Repository {
         this.localData = localData;
     }
 
+    @Override
+    public Single<ArticlesListResponse> downloadArticles() {
+        return remoteRepo.getArticlesList()
+                .observeOn(AndroidSchedulers.mainThread());
+    }
 }

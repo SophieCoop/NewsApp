@@ -1,4 +1,4 @@
-package com.example.home.newsapp.screens.article;
+package com.example.home.newsapp.screens.articleitem;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -6,18 +6,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.home.newsapp.model.Article;
 import com.example.home.newsapp.R;
+import com.example.home.newsapp.repository.retrofit.model.ArticleModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ArticlesAdapter extends RecyclerView.Adapter<ArticleHolder>{
 
-    private List<Article> articlesList = new ArrayList<>();
+    private List<ArticleModel> articlesList = new ArrayList<>();
 
 
-    public ArticlesAdapter(List<Article> albumList){
+    public ArticlesAdapter(List<ArticleModel> albumList){
         this.articlesList.addAll(albumList);
     }
 

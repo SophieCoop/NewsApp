@@ -13,11 +13,5 @@ public interface RetrofitApi {
 
     @GET("top-headlines?country=us&apiKey=4a0e9e38a7a04fc9afdcb190357dcf8b")
     Single<ArticlesListResponse> getArticlesList(
-
     );
-
-//    @POST("UpdateSongLyrics")
-//    Completable sendLyrics(
-//            @Body SongModel song
-//    );
 }
